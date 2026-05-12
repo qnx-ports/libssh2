@@ -117,6 +117,7 @@ endif()
 
 option(BUILD_EXAMPLES "Build libssh2 examples" ON)
 option(BUILD_TESTING "Build libssh2 test suite" ON)
+option(BUILD_DOCS "Build libssh2 documentation" ON)
 
 if(NOT BUILD_STATIC_LIBS AND NOT BUILD_SHARED_LIBS)
   set(BUILD_STATIC_LIBS ON)
@@ -466,7 +467,9 @@ if(LINT)
   endif()
 endif()
 
-add_subdirectory(docs)
+if(BUILD_DOCS)
+  add_subdirectory(docs)
+endif()
 
 feature_summary(WHAT ALL)
 
